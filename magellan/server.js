@@ -1,7 +1,11 @@
 var express     = require('express');
 var bodyParser   = require('body-parser');
+var morgan      = require('morgan');
 
 var app = express();
+app.use(bodyParser.urlencoded({ extended : true }));
+app.use(bodyParser.json());
+app.use(morgan());
 
 app.use(express.static(__dirname +'/public'))
 
@@ -36,8 +40,13 @@ app.get('/phillipines', function(req, res){
 })
 
 
-app.use(bodyParser.urlencoded({ extended : true }));
-app.use(bodyParser.json())
+app.get( function(req, res){
+    console.log(req.query);
+    console.log('hello world');
+    res.sendFile('default.html', {root: './public/html'})
+    
+})
+
 
 app.post('/nextlocation', function(req, res){
     
@@ -46,3 +55,4 @@ app.post('/nextlocation', function(req, res){
 app.listen( process.env.PORT || 3000, function(){
     console.log('Server is running');
 })
+
