@@ -1,0 +1,17 @@
+* {
+    margin:0;
+}
+
+.container {
+    margin-top:200px;
+    margin-left:200px;
+    position:fixed;
+    top:0;
+    height:600px;
+    width:100vw;
+}
+
+.seville {
+    height:100%;
+    width:70%;
+}
